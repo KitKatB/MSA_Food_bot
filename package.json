@@ -1,0 +1,23 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "MSA chatbot test no.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KitKatB/CBot1.git"
+  },
+  "author": "Kit Burgos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KitKatB/CBot1/issues"
+  },
+  "homepage": "https://github.com/KitKatB/CBot1#readme",
+  "dependencies": {
+    "botbuilder": "^3.12.0",
+    "restify": "^6.3.2"
+  }
+}
