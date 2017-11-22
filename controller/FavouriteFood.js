@@ -2,6 +2,7 @@ var rest = require('../API/RestClient');
 
 exports.displayFavouriteFood = function getFavouriteFood(session, username){
     var url = 'https://FoodBotKb.azurewebsites.net/tables/FoodBot';
+    //handlefavouritefoodresponse is the callback and the rest's result will be passed to this callback
     rest.getFavouriteFood(url, session, username, handleFavouriteFoodResponse)
 };
 

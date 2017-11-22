@@ -24,5 +24,7 @@ var bot = new builder.UniversalBot(connector, function (session) {
         session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
     });
     
-    // This line will call the function in your LuisDialog.js file
-    luis.startDialog(bot);
+// This line will call the function in your LuisDialog.js file
+//pass bot as argument into the LuisDialog
+//bot is a UniversalBot from botbuilder
+luis.startDialog(bot);
