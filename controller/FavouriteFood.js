@@ -1,9 +1,44 @@
 var rest = require('../API/RestClient');
 
 exports.displayFavouriteFood = function getFavouriteFood(session, username){
+    //AZURE table
     var url = 'https://FoodBotKb.azurewebsites.net/tables/FoodBot';
     //handlefavouritefoodresponse is the callback and the rest's result will be passed to this callback
     rest.getFavouriteFood(url, session, username, handleFavouriteFoodResponse)
+};
+
+exports.sendFavouriteFood = function postFavouriteFood(session, username, favouriteFood){
+    //AZURE table
+    var url = 'https://FoodBotKb.azurewebsites.net/tables/FoodBot';
+    //handlefavouritefoodresponse is the callback and the rest's result will be passed to this callback
+    rest.postFavouriteFood(url, username, favouriteFood)
+};
+
+exports.deleteFavouriteFood = function deleteFavouriteFood(session,username,favouriteFood){
+    var url  = 'https://FoodBotKb.azurewebsites.net/tables/FoodBot';
+
+    rest.getFavouriteFood(url,session, username,function(message,session,username){
+     var allFoods = JSON.parse(message);
+        for(var i in allFoods) {
+            console.log("AAAAAAAAAA");
+            console.log(allFoods[i]);
+            if (allFoods[i].favouritefood == favouriteFood && allFoods[i].username == username) {
+                //console.log('aaaaaaaaaaaaaaaaaaa');
+                console.log(allFoods[i]);
+
+                rest.deleteFavouriteFood(url,session,username,favouriteFood, allFoods[i].id ,handleDeletedFoodResponse)
+
+            }
+        }
+
+
+    });
+
+
+};
+
+function handleDeletedFoodResponse(body,session,username, favouriteFood){
+    console.log('Done');
 };
 
 function handleFavouriteFoodResponse(message, session, username) {
