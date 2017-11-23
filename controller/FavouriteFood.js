@@ -1,4 +1,4 @@
-var rest = require('../API/RestClient');
+var rest = require('../API/Restclient');
 
 exports.displayFavouriteFood = function getFavouriteFood(session, username){
     //AZURE table
@@ -22,7 +22,7 @@ exports.deleteFavouriteFood = function deleteFavouriteFood(session,username,favo
         for(var i in allFoods) {
             console.log("AAAAAAAAAA");
             console.log(allFoods[i]);
-            if (allFoods[i].favouritefood == favouriteFood && allFoods[i].username == username) {
+            if (allFoods[i].favouritefood === favouriteFood && allFoods[i].username === username) {
                 //console.log('aaaaaaaaaaaaaaaaaaa');
                 console.log(allFoods[i]);
 
@@ -33,7 +33,6 @@ exports.deleteFavouriteFood = function deleteFavouriteFood(session,username,favo
 
 
     });
-
 
 };
 
